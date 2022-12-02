@@ -1,14 +1,16 @@
 import { useState } from "react";
 import GlobalStyles from "./styles/global";
 import LoginPage from "./pages/login";
-import StyledContainer from "./styles/Container";
+import RegisterPage from "./pages/register";
+import DashboardPage from "./pages/dashboard";
+
 
 function App() {
 
   return (
     <div className="App">
       <GlobalStyles />
-        <LoginPage></LoginPage>
+      <DashboardPage></DashboardPage>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Input from "../../components/Input/";
 import StyledContainer from "../../styles/Container";
 import logoImg from "../../assets/Logo.svg";
 import StyledButton from "../../components/Button";
-import StyledRedirectButton from "./RedirectButton";
+import StyledRedirectButton from "./RedirectButton/style";
 
 const LoginPage = () => {
   return (

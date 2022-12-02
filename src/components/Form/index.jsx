@@ -5,6 +5,7 @@ const StyledForm = styled.form`
   margin-top: 20px;
   padding: 42px 22px;
   background-color: var(--gray-3);
+  color: var(--gray-0);
   box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   display: flex;
@@ -28,6 +29,16 @@ const StyledForm = styled.form`
     font-size: var(--font-size-2);
     margin: 27px 0 17px;
     color: var(--gray-1);
+  }
+
+  & span {
+    padding-bottom: 15px;
+    font-size: var(--font-size-2);
+    color: var(--gray-1);
+  }
+
+  & > label > input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
 `;
 

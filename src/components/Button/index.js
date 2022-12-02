@@ -4,7 +4,7 @@ const StyledButton = styled.button`
   width: 100%;
   min-height: 40px;
   background-color: var(--color-primary-negative);
-  color: #fff;
+  color: var(--gray-0);
   font-size: var(--font-size-2);
   border-radius: 4px;
 `;
