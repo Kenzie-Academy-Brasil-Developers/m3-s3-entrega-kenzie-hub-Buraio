@@ -18,7 +18,6 @@ const Header = ({ pagePath, linkName }) => {
 };
 
 const StyledHeader = styled.header`
-
   width: 100%;
 
   & > div {
@@ -36,7 +35,6 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
   }
-
 `;
 
 export default Header;

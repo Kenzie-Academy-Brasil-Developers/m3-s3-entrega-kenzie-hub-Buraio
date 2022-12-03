@@ -5,7 +5,7 @@ import StyledContainer from "../../styles/Container";
 const DashboardPage = () => {
   return (
     <>
-      <Header pagePath="/" linkName="Sair"/>
+      <Header pagePath="/" linkName="Sair" />
       <StyledContainer>
         <h2>Olá, Usuário</h2>
         <p>Número módulo</p>

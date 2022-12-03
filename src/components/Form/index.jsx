@@ -15,8 +15,9 @@ const StyledForm = styled.form`
   & h2 {
     font-size: var(--font-size-1);
   }
-  
-  & h2, label {
+
+  & h2,
+  label {
     margin-bottom: 22px;
   }
 
@@ -37,7 +38,7 @@ const StyledForm = styled.form`
     color: var(--gray-1);
   }
 
-  & > label > input[type=number]::-webkit-inner-spin-button {
+  & > label > input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
 `;

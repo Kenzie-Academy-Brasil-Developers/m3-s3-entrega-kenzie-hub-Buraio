@@ -18,7 +18,6 @@ const StyledSelect = styled.select`
   & > option {
     color: #fff;
   }
-
 `;
 
 export default StyledSelect;

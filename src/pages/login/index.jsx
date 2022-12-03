@@ -5,8 +5,15 @@ import StyledContainer from "../../styles/Container";
 import logoImg from "../../assets/Logo.svg";
 import StyledButton from "../../components/Button";
 import StyledRedirectButton from "./RedirectButton/style";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const redirectPage = (event) => {
+    event.preventDefault();
+    navigate("/register");
+  };
+
   return (
     <StyledContainer>
       <h1>
@@ -31,7 +38,9 @@ const LoginPage = () => {
 
         <p>Ainda não possui uma conta?</p>
 
-        <StyledRedirectButton>Cadastre-se</StyledRedirectButton>
+        <StyledRedirectButton onClick={redirectPage}>
+          Cadastre-se
+        </StyledRedirectButton>
       </Form>
     </StyledContainer>
   );

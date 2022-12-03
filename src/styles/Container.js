@@ -8,6 +8,10 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  & h1 {
+    text-align: center;
+  }
 `;
 
 export default StyledContainer;
