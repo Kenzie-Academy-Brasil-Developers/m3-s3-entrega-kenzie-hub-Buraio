@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const StyledInput = styled.input`
   width: 100%;
   min-height: 40px;
@@ -21,7 +22,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ id, type, placeholder, inputName }) => {
+const Input = ({ id, type, placeholder, inputName, register, error }) => {
   return (
     <>
       <label htmlFor={id}>
@@ -30,7 +31,9 @@ const Input = ({ id, type, placeholder, inputName }) => {
           id={id}
           type={type}
           placeholder={placeholder}
+          {...register}
         ></StyledInput>
+        <span>{error}</span>
       </label>
     </>
   );

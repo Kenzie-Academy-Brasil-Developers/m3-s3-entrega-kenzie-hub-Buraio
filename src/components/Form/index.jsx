@@ -32,10 +32,16 @@ const StyledForm = styled.form`
     color: var(--gray-1);
   }
 
-  & span {
+  & > span {
     padding-bottom: 15px;
     font-size: var(--font-size-2);
     color: var(--gray-1);
+  }
+
+  & > label > span {
+    margin: 10px 0 0;
+    display: inline-block;
+    color: var(--color-negative);
   }
 
   & > label > input[type="number"]::-webkit-inner-spin-button {
@@ -43,8 +49,4 @@ const StyledForm = styled.form`
   }
 `;
 
-const Form = ({ children }) => {
-  return <StyledForm>{children}</StyledForm>;
-};
-
-export default Form;
+export default StyledForm;
