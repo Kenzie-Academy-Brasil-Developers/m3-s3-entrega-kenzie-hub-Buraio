@@ -7,9 +7,11 @@ import loginSchema from "../../../schemas/Login";
 import StyledRedirectButton from "../RedirectButton/style";
 import { useNavigate } from "react-router-dom";
 import kenzieHubApi from "../../../services/api";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+
   const redirectPage = (event) => {
     event.preventDefault();
     navigate("/register");
@@ -24,18 +26,21 @@ const LoginForm = () => {
   });
 
   const submitData = async (data) => {
-
     try {
-
       const request = await kenzieHubApi.post("sessions", data);
-      console.log(request);
 
+      console.log(request.data)
+
+      localStorage.clear();
+      localStorage.setItem("@token", request.data.token)
+      localStorage.setItem("@userId", request.data.user.id);
+
+      navigate("/dashboard");
+      reset();
+
+    } catch (error) {
+      toast.error(error.response?.data.message);
     }
-    catch (error) {
-
-      console.log(error);
-    }
-
   };
 
   return (

@@ -11,7 +11,9 @@ const Header = ({ pagePath, linkName }) => {
           <img src={logoImg} alt="" />
         </h1>
 
-        <Link to={pagePath}>{linkName}</Link>
+        <Link to={pagePath} onClick={() => localStorage.clear()}>
+          {linkName}
+        </Link>
       </div>
     </StyledHeader>
   );
@@ -19,6 +21,8 @@ const Header = ({ pagePath, linkName }) => {
 
 const StyledHeader = styled.header`
   width: 100%;
+  padding: 25px 12px 30px;
+  border-bottom: 1px solid var(--gray-3);
 
   & > div {
     width: 100%;

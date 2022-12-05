@@ -7,6 +7,7 @@ const RegisterPage = () => {
   useEffect(() => {
     scrollTo(0, 0);
   }, []);
+
   return (
     <StyledContainer>
       <Header pagePath="/" linkName="Voltar" />
