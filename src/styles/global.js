@@ -50,12 +50,14 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
-  h1, h2, h3, h4, h5, h6, p, a, span, li, button, input{
-    font-family: 'Inter', sans-serif;
+  h1, h2, h3, h4, h5, h6, p, a, span, li, button, input, label, select, option {
+    font-family: var(--font-family);
   }
 
   body, .App {
     height: 100vh;
+    background-color: #121214;
+    color: #fff;
   }
 
   @media (min-width: 375px) {
