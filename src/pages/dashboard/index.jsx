@@ -5,9 +5,8 @@ import kenzieHubApi from "../../services/api";
 import StyledContainer from "../../styles/Container";
 
 const DashboardPage = () => {
-
-  const [ userName, setUserName ] = useState();
-  const [ userModule, setUserModule ] = useState();
+  const [userName, setUserName] = useState();
+  const [userModule, setUserModule] = useState();
 
   const loggedUserToken = localStorage.getItem("@token");
   const loggedUserId = localStorage.getItem("@userId");
@@ -18,12 +17,10 @@ const DashboardPage = () => {
         `users/${loggedUserId}`,
         loggedUserToken
       );
-
-      console.log(request);
       setUserName(request.data.name);
       setUserModule(request.data.course_module);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

@@ -11,7 +11,7 @@ const RegisterPage = () => {
   return (
     <StyledContainer>
       <Header pagePath="/" linkName="Voltar" />
-      <RegisterForm></RegisterForm>
+      <RegisterForm />
     </StyledContainer>
   );
 };

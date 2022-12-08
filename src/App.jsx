@@ -2,11 +2,11 @@ import GlobalStyles from "./styles/global";
 import RouteMain from "./routes";
 import { ToastContainer } from "react-toastify";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <GlobalStyles />
-      <RouteMain></RouteMain>
+      <RouteMain />
       <ToastContainer
         position="top-right"
         autoClose={5000}

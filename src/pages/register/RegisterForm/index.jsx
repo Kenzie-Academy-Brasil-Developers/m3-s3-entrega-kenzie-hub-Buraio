@@ -1,10 +1,10 @@
-import StyledForm from "../../../components/Form";
+import StyledForm from "../../../components/Form/style";
 import { useForm } from "react-hook-form";
 import Input from "../../../components/Input";
-import SelectModule from "../SelectModule";
-import StyledButton from "../../../components/Button";
+import SelectModule from "../../../components/SelectModule";
+import StyledButton from "../../../components/Button/style";
 import { yupResolver } from "@hookform/resolvers/yup";
-import registerSchema from "../../../schemas/Register";
+import registerSchema from "./registerSchema";
 import kenzieHubApi from "../../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
