@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import { useContext } from "react";
 import Header from "../../components/Header";
+import { UserContext } from "../../contexts/userContext";
 import StyledContainer from "../../styles/Container";
 import RegisterForm from "./RegisterForm";
 
 const RegisterPage = () => {
-  useEffect(() => {
-    scrollTo(0, 0);
-  }, []);
+
+  const { setScroll } = useContext(UserContext);
+
+  setScroll();
 
   return (
     <StyledContainer>

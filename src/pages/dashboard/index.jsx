@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import Header from "../../components/Header";
+import { UserContext } from "../../contexts/userContext";
 import kenzieHubApi from "../../services/api";
-import StyledContainer from "../../styles/Container";
-
+import StyledDashContainer from "./style";
 const DashboardPage = () => {
+  const { navigate } = useContext(UserContext);
+
   const [userName, setUserName] = useState();
   const [userModule, setUserModule] = useState();
 
   const loggedUserToken = localStorage.getItem("@token");
   const loggedUserId = localStorage.getItem("@userId");
+
+  useEffect(() => {
+    if (!loggedUserToken) {
+      navigate("/");
+    } else {
+      getUserDataFromApi();
+    }
+  }, []);
 
   const getUserDataFromApi = async () => {
     try {
@@ -24,15 +35,13 @@ const DashboardPage = () => {
     }
   };
 
-  getUserDataFromApi();
-
   return (
     <>
       <Header pagePath="/" linkName="Sair" />
-      <StyledContainer>
+      <StyledDashContainer>
         <h2>Olá, {userName}!</h2>
         <p>{userModule}</p>
-      </StyledContainer>
+      </StyledDashContainer>
     </>
   );
 };

@@ -20,6 +20,29 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
   }
+
+  @media (min-width: 500px) {
+
+    & div {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 900px) {
+
+    & div {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1200px) {
+
+    & div {
+      max-width: 1000px;
+    }
+  }
 `;
 
 export default StyledHeader;

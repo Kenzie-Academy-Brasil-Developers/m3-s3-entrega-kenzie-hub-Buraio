@@ -1,21 +1,18 @@
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from "react-toastify";
 import StyledForm from "../../../components/Form/style";
 import Input from "../../../components/Input";
 import StyledButton from "../../../components/Button/style";
 import loginSchema from "./loginSchema";
 import StyledRedirectButton from "../../../components/RedirectButton/style";
-import kenzieHubApi from "../../../services/api";
+import { useContext } from "react";
+import { UserContext } from "../../../contexts/userContext";
 
 const LoginForm = () => {
-  const navigate = useNavigate();
+  
+  const { loginData, redirectPage, verifyToken } = useContext(UserContext);
 
-  const redirectPage = (event) => {
-    event.preventDefault();
-    navigate("/register");
-  };
+  verifyToken();
 
   const {
     register,
@@ -25,23 +22,8 @@ const LoginForm = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const submitData = async (data) => {
-    try {
-      const request = await kenzieHubApi.post("sessions", data);
-
-      localStorage.clear();
-      localStorage.setItem("@token", request.data.token);
-      localStorage.setItem("@userId", request.data.user.id);
-
-      navigate("/dashboard");
-      reset();
-    } catch (error) {
-      toast.error(error.response?.data.message);
-    }
-  };
-
   return (
-    <StyledForm onSubmit={handleSubmit(submitData)} noValidate>
+    <StyledForm onSubmit={handleSubmit(loginData)} noValidate>
       <h2>Login</h2>
 
       <Input
