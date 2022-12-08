@@ -5,41 +5,24 @@ import SelectModule from "../../../components/SelectModule";
 import StyledButton from "../../../components/Button/style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import registerSchema from "./registerSchema";
-import kenzieHubApi from "../../../services/api";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../../contexts/userContext";
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
+  const { registerData, verifyToken } = useContext(UserContext);
+
+  verifyToken();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(registerSchema),
   });
 
-  const submitData = async (data) => {
-    try {
-      await kenzieHubApi.post("users", data);
-
-      toast.success("Sucesso, redirecionando para a página de login");
-
-      reset();
-
-      setTimeout(() => {
-        navigate("/");
-      }, 6000);
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
-
   return (
-    <StyledForm onSubmit={handleSubmit(submitData)} noValidate>
+    <StyledForm onSubmit={handleSubmit(registerData)} noValidate>
       <h2>Crie sua conta</h2>
       <span>Rápido e grátis, vamos nessa!</span>
 

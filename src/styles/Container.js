@@ -12,6 +12,13 @@ const StyledContainer = styled.div`
   & h1 {
     text-align: center;
   }
+
+  @media (min-width: 500px) {
+
+    max-width: 370px;
+    margin: 50px auto;
+
+  }
 `;
 
 export default StyledContainer;

@@ -7,12 +7,20 @@ const SelectModule = ({ register, error }) => {
       Selecionar Módulo
       <StyledSelect id="selectModule" {...register}>
         <option value="">Selecione o Módulo</option>
-        <option value="1">Primeiro Módulo</option>
-        <option value="2">Segundo Módulo</option>
-        <option value="3">Terceiro Módulo</option>
-        <option value="4">Quarto Módulo</option>
-        <option value="5">Quinto Módulo</option>
-        <option value="6">Sexto Módulo</option>
+        <option value="Primeiro Módulo (Introdução ao Frontend)">
+          Primeiro Módulo
+        </option>
+        <option value="Segundo Módulo (Avançando em Javascript)">
+          Segundo Módulo
+        </option>
+        <option value="Terceiro Módulo (React)">Terceiro Módulo</option>
+        <option value="Quarto Módulo (Introdução ao Backend)">
+          Quarto Módulo
+        </option>
+        <option value="Quinto Módulo (Avançando em Backend)">
+          Quinto Módulo
+        </option>
+        <option value="Sexto Módulo (Empregabilidade)">Sexto Módulo</option>
       </StyledSelect>
       <span>{error}</span>
     </label>

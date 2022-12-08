@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import StyledContainer from "../../styles/Container";
 import logoImg from "../../assets/Logo.svg";
 import LoginForm from "./LoginForm";
+import { UserContext, UserProvider } from "../../contexts/userContext";
 
 const LoginPage = () => {
-  useEffect(() => {
-    scrollTo(0, 0);
-  }, []);
+
+  const { setScroll } = useContext(UserContext);
+
+  setScroll();
 
   return (
     <StyledContainer>
