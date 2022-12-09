@@ -2,6 +2,14 @@ import styled from "styled-components";
 import StyledContainer from "../../styles/Container";
 
 const StyledDashContainer = styled(StyledContainer)`
+  & ul {
+    width: 100%;
+    min-height: 600px;
+    padding: 23px;
+    background-color: var(--gray-3);
+    border-radius: 4px;
+  }
+
   @media (min-width: 500px) {
     max-width: 500px;
     padding: 0;

@@ -7,19 +7,43 @@ import kenzieHubApi from "../services/api";
 export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
 
   const setScroll = () => {
     useEffect(() => scrollTo(0, 0), []);
   };
 
-  const verifyToken = () => {
-    const token = localStorage.getItem("@token");
-
-    if (token) {
-      localStorage.clear();
-    }
+  const redirectPage = (event) => {
+    event.preventDefault();
+    navigate("/register");
   };
+
+  useEffect(() => {
+    const userData = async () => {
+      const token = localStorage.getItem("@token");
+      if (token) {
+        try {
+          const { data } = await kenzieHubApi.get("profile", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          setUser(data);
+        } catch (error) {
+          console.error(error);
+          localStorage.clear();
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    userData();
+  }, []);
 
   const registerData = async (data) => {
     try {
@@ -39,9 +63,11 @@ export const UserProvider = ({ children }) => {
     try {
       const request = await kenzieHubApi.post("sessions", data);
 
-      localStorage.clear();
-      localStorage.setItem("@token", request.data.token);
-      localStorage.setItem("@userId", request.data.user.id);
+      const { token, user: userData } = request.data;
+
+      setUser(userData);
+      localStorage.setItem("@token", token);
+      localStorage.setItem("@userId", userData.id);
 
       navigate("/dashboard");
     } catch (error) {
@@ -49,14 +75,17 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const redirectPage = (event) => {
-    event.preventDefault();
-    navigate("/register");
-  };
-
   return (
     <UserContext.Provider
-      value={{ setScroll, navigate, registerData, loginData, redirectPage, verifyToken }}
+      value={{
+        setScroll,
+        navigate,
+        registerData,
+        loginData,
+        redirectPage,
+        user,
+        loading,
+      }}
     >
       {children}
     </UserContext.Provider>

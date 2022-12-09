@@ -2,10 +2,9 @@ import React, { useContext } from "react";
 import StyledContainer from "../../styles/Container";
 import logoImg from "../../assets/Logo.svg";
 import LoginForm from "./LoginForm";
-import { UserContext, UserProvider } from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 const LoginPage = () => {
-
   const { setScroll } = useContext(UserContext);
 
   setScroll();

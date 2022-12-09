@@ -2,7 +2,7 @@ import React from "react";
 import StyledTechCard from "./style";
 import trashIcon from "../../assets/trashIcon.svg";
 
-export const TechCard = ({ techName, experienceLevel }) => {
+const TechCard = ({ techName, experienceLevel }) => {
   const deleteTechCard = (event) => {
     event.preventDefault();
     console.log(event.target);
@@ -20,3 +20,5 @@ export const TechCard = ({ techName, experienceLevel }) => {
     </StyledTechCard>
   );
 };
+
+export default TechCard;

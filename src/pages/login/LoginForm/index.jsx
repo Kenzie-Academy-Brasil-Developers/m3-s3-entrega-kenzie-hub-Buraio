@@ -10,9 +10,7 @@ import { UserContext } from "../../../contexts/userContext";
 
 const LoginForm = () => {
   
-  const { loginData, redirectPage, verifyToken } = useContext(UserContext);
-
-  verifyToken();
+  const { loginData, redirectPage } = useContext(UserContext);
 
   const {
     register,

@@ -22,7 +22,6 @@ const StyledHeader = styled.header`
   }
 
   @media (min-width: 500px) {
-
     & div {
       max-width: 500px;
       margin: 0 auto;
@@ -30,7 +29,6 @@ const StyledHeader = styled.header`
   }
 
   @media (min-width: 900px) {
-
     & div {
       max-width: 800px;
       margin: 0 auto;
@@ -38,7 +36,6 @@ const StyledHeader = styled.header`
   }
 
   @media (min-width: 1200px) {
-
     & div {
       max-width: 1000px;
     }
