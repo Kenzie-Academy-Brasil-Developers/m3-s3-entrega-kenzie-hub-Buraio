@@ -5,7 +5,6 @@ import StyledContainer from "../../styles/Container";
 import RegisterForm from "./RegisterForm";
 
 const RegisterPage = () => {
-
   const { setScroll } = useContext(UserContext);
 
   setScroll();

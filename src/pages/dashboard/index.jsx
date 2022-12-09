@@ -1,48 +1,42 @@
 import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import Header from "../../components/Header";
+import TechCard from "../../components/TechCard";
 import { UserContext } from "../../contexts/userContext";
-import kenzieHubApi from "../../services/api";
 import StyledDashContainer from "./style";
 const DashboardPage = () => {
-  const { navigate } = useContext(UserContext);
+  const { user, loading } = useContext(UserContext);
 
-  const [userName, setUserName] = useState();
-  const [userModule, setUserModule] = useState();
+  if (loading) {
+    return null;
+  }
 
-  const loggedUserToken = localStorage.getItem("@token");
-  const loggedUserId = localStorage.getItem("@userId");
+  const { name, techs, course_module } = user;
 
-  useEffect(() => {
-    if (!loggedUserToken) {
-      navigate("/");
-    } else {
-      getUserDataFromApi();
-    }
-  }, []);
-
-  const getUserDataFromApi = async () => {
-    try {
-      const request = await kenzieHubApi.get(
-        `users/${loggedUserId}`,
-        loggedUserToken
-      );
-      setUserName(request.data.name);
-      setUserModule(request.data.course_module);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  return (
+  return user ? (
     <>
       <Header pagePath="/" linkName="Sair" />
       <StyledDashContainer>
-        <h2>Olá, {userName}!</h2>
-        <p>{userModule}</p>
+        <div>
+          <h2>Olá, {name}!</h2>
+          <p>{course_module}</p>
+        </div>
+
+        <div>
+          <h3>Tecnologias</h3>
+          <button>+</button>
+        </div>
+
+        <ul>
+          {techs.map((tech) => (
+            <TechCard />
+          ))}
+          <TechCard></TechCard>
+        </ul>
       </StyledDashContainer>
     </>
+  ) : (
+    <Navigate to="/" />
   );
 };
 

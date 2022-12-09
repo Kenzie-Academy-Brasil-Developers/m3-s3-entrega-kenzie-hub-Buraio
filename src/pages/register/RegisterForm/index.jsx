@@ -9,9 +9,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../contexts/userContext";
 
 const RegisterForm = () => {
-  const { registerData, verifyToken } = useContext(UserContext);
-
-  verifyToken();
+  const { registerData } = useContext(UserContext);
 
   const {
     register,
