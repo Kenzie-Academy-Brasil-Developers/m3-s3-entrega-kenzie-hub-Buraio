@@ -5,7 +5,6 @@ import trashIcon from "../../assets/trashIcon.svg";
 const TechCard = ({ techName, experienceLevel }) => {
   const deleteTechCard = (event) => {
     event.preventDefault();
-    console.log(event.target);
   };
 
   return (
