@@ -9,7 +9,6 @@ import { useContext } from "react";
 import { UserContext } from "../../../contexts/userContext";
 
 const LoginForm = () => {
-  
   const { loginData, redirectPage } = useContext(UserContext);
 
   const {
