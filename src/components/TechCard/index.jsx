@@ -7,6 +7,10 @@ const TechCard = ({ techName, experienceLevel }) => {
     event.preventDefault();
   };
 
+  const getTechCard = (event) => {
+    
+  }
+
   return (
     <StyledTechCard>
       <span>{techName}</span>
