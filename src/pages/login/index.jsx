@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import StyledContainer from "../../styles/Container";
 import logoImg from "../../assets/Logo.svg";
-import LoginForm from "./LoginForm";
+import LoginForm from "../../components/LoginForm";
 import { UserContext } from "../../contexts/userContext";
 
 const LoginPage = () => {

@@ -1,12 +1,12 @@
-import StyledForm from "../../../components/Form/style";
+import StyledForm from "../Form/style";
 import { useForm } from "react-hook-form";
-import Input from "../../../components/Input";
-import SelectModule from "../../../components/SelectModule";
-import StyledButton from "../../../components/Button/style";
+import Input from "../Input";
+import SelectModule from "../SelectModule";
+import StyledButton from "../Button/style";
 import { yupResolver } from "@hookform/resolvers/yup";
 import registerSchema from "./registerSchema";
 import { useContext } from "react";
-import { UserContext } from "../../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 const RegisterForm = () => {
   const { registerData } = useContext(UserContext);

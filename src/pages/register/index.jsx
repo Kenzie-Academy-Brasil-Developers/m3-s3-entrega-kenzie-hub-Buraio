@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Header from "../../components/Header";
 import { UserContext } from "../../contexts/userContext";
 import StyledContainer from "../../styles/Container";
-import RegisterForm from "./RegisterForm";
+import RegisterForm from "../../components/RegisterForm";
 
 const RegisterPage = () => {
   const { setScroll } = useContext(UserContext);

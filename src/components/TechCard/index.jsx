@@ -1,24 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import StyledTechCard from "./style";
 import trashIcon from "../../assets/trashIcon.svg";
+import { UserContext } from "../../contexts/userContext";
+import kenzieHubApi from "../../services/api";
 
-const TechCard = ({ techName, experienceLevel }) => {
-  const deleteTechCard = (event) => {
-    event.preventDefault();
+const TechCard = ({ id, title, status }) => {
+  const deleteTechCard = async (event) => {
+    const techCardId = event.target.id;
+    console.log(techCardId);
+
+    const token = localStorage.getItem("@token");
+
+    const deleteRequest = await kenzieHubApi.delete(
+      `/users/techs/${techCardId}`,
+      token
+    );
   };
 
   const getTechCard = (event) => {
-    
-  }
+    const techCardId = event.target.id;
+    console.log(techCardId);
+  };
 
   return (
-    <StyledTechCard>
-      <span>{techName}</span>
+    <StyledTechCard id={id}>
+      <span>{title}</span>
       <div>
-        <span>{experienceLevel}</span>
-        <button onClick={deleteTechCard}>
-          <img src={trashIcon} alt="" />
-        </button>
+        <span>{status}</span>
       </div>
     </StyledTechCard>
   );

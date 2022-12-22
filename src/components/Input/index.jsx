@@ -21,7 +21,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ id, type, placeholder, inputName, register, error }) => {
+const Input = ({ id, type, placeholder, inputName, register, error, onChange }) => {
   return (
     <>
       <label htmlFor={id}>
@@ -31,6 +31,7 @@ const Input = ({ id, type, placeholder, inputName, register, error }) => {
           type={type}
           placeholder={placeholder}
           {...register}
+          onChange={onChange}
         ></StyledInput>
         <span>{error}</span>
       </label>

@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import StyledForm from "../../../components/Form/style";
-import Input from "../../../components/Input";
-import StyledButton from "../../../components/Button/style";
+import StyledForm from "../Form/style";
+import Input from "../Input";
+import StyledButton from "../Button/style";
 import loginSchema from "./loginSchema";
-import StyledRedirectButton from "../../../components/RedirectButton/style";
+import StyledRedirectButton from "../RedirectButton/style";
 import { useContext } from "react";
-import { UserContext } from "../../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 const LoginForm = () => {
   const { loginData, redirectPage } = useContext(UserContext);
